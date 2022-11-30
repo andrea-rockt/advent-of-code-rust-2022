@@ -21,6 +21,7 @@ jobs:
                   userId: ${{ secrets.AOC_USER_ID }}
                   sessionCookie: ${{ secrets.AOC_SESSION }}
                   year: ${{ secrets.AOC_YEAR }}
+                  leaderboardId: ${{ secrets.AOC_LEADERBOARD_ID}}
             - uses: stefanzweifel/git-auto-commit-action@v4
               if: ${{ env.AOC_ENABLED }}
               env:
