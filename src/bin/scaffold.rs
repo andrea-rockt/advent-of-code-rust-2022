@@ -8,12 +8,12 @@ use std::{
     process,
 };
 
-const MODULE_TEMPLATE: &str = r###"pub fn part_one(input: &str) -> Option<u32> {
-    None
+const MODULE_TEMPLATE: &str = r###"pub fn part_one(_input: &str) -> Result<u32, String> {
+    Err("Not solved".to_string())
 }
 
-pub fn part_two(input: &str) -> Option<u32> {
-    None
+pub fn part_two(_input: &str) -> Result<u32, String> {
+    Err("Not solved".to_string()) 
 }
 
 fn main() {
@@ -29,13 +29,13 @@ mod tests {
     #[test]
     fn test_part_one() {
         let input = advent_of_code::read_file("examples", DAY);
-        assert_eq!(part_one(&input), None);
+        assert_eq!(part_one(&input), Err("Not solved".to_string()));
     }
 
     #[test]
     fn test_part_two() {
         let input = advent_of_code::read_file("examples", DAY);
-        assert_eq!(part_two(&input), None);
+        assert_eq!(part_two(&input), Err("Not solved".to_string()));
     }
 }
 "###;

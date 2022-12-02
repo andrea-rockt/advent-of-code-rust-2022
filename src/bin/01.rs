@@ -119,8 +119,8 @@ impl State {
 ///
 /// * if we encounter a parsing error (a line is not parsable as a u32) instead of panic we coerce the error
 ///   to zero amount of calories
-pub fn part_one(input: &str) -> Option<u32> {
-    Some(
+pub fn part_one(input: &str) -> Result<u32, String> {
+    Ok(
         input
             .lines()
             .fold(State::zero(), |acc, elem| {
@@ -166,7 +166,7 @@ fn sum_all_values_until_empty_line() -> impl Fn(Option<i32>, &str) -> FoldWhile<
     })
 }
 
-pub fn part_two(input: &str) -> Option<u32> {
+pub fn part_two(input: &str) -> Result<u32,String> {
     let sum_of_top_three: i32 = input
         // We iterate over lines
         .lines()
@@ -191,7 +191,7 @@ pub fn part_two(input: &str) -> Option<u32> {
         .sum();
 
         //we know that number of calories is zero or positive so we can safely cast to u32
-    Some(sum_of_top_three as u32)
+    Ok(sum_of_top_three as u32)
 }
 
 fn main() {
@@ -207,12 +207,12 @@ mod tests {
     #[test]
     fn test_part_one() {
         let input = advent_of_code::read_file("examples", 1);
-        assert_eq!(part_one(&input), Some(24000));
+        assert_eq!(part_one(&input), Ok(24000));
     }
 
     #[test]
     fn test_part_two() {
         let input = advent_of_code::read_file("examples", 1);
-        assert_eq!(part_two(&input), Some(45000));
+        assert_eq!(part_two(&input), Ok(45000));
     }
 }
