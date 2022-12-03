@@ -342,8 +342,8 @@ mod tests {
     fn test_no_moves() {
         let input = "";
 
-        assert_eq!(part_one(&input), Ok(0));
-        assert_eq!(part_two(&input), Ok(0));
+        assert_eq!(part_one(input), Ok(0));
+        assert_eq!(part_two(input), Ok(0));
     }
 
     #[test]
